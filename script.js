@@ -1,8 +1,21 @@
 const releaseMeta = document.querySelector("#releaseMeta");
 const downloadLink = document.querySelector("#downloadLink");
-const latestDownloadLinks = document.querySelectorAll(".latestDownload");
+const directDownloadLinks = document.querySelectorAll(".directDownload");
+const directDownloadFallbackUrl =
+  "https://github.com/rogue-socket/gitstatus/releases/latest/download/GitStatusBar-v0.1.1.zip";
+
+function applyDirectDownloadUrl(url) {
+  if (downloadLink) {
+    downloadLink.href = url;
+  }
+  directDownloadLinks.forEach((link) => {
+    link.href = url;
+  });
+}
 
 async function setLatestReleaseDownload() {
+  applyDirectDownloadUrl(directDownloadFallbackUrl);
+
   try {
     const response = await fetch(
       "https://api.github.com/repos/rogue-socket/gitstatus/releases/latest",
@@ -23,12 +36,10 @@ async function setLatestReleaseDownload() {
       return;
     }
 
-    downloadLink.href = zipAsset.browser_download_url;
-    latestDownloadLinks.forEach((link) => {
-      link.href = zipAsset.browser_download_url;
-    });
+    applyDirectDownloadUrl(zipAsset.browser_download_url);
     releaseMeta.textContent = `${release.tag_name} · ${zipAsset.name}`;
   } catch {
+    applyDirectDownloadUrl(directDownloadFallbackUrl);
     releaseMeta.textContent = "macOS 13+ · latest release on GitHub";
   }
 }
