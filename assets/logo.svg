@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">GitStatusBar logo</title>
+  <desc id="desc">A stylized git branch and status lights inside a menu bar tile.</desc>
+  <rect width="512" height="512" rx="112" fill="#101412"/>
+  <rect x="54" y="74" width="404" height="64" rx="32" fill="#f7faf8"/>
+  <circle cx="104" cy="106" r="13" fill="#31d66f"/>
+  <circle cx="148" cy="106" r="13" fill="#ffd43b"/>
+  <circle cx="192" cy="106" r="13" fill="#ff6b5f"/>
+  <path
+    d="M256 384V254M256 254c-58 0-104-47-104-105M256 254c58 0 104-47 104-105"
+    fill="none"
+    stroke="#f7faf8"
+    stroke-width="38"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <circle cx="152" cy="149" r="34" fill="#16a5ff"/>
+  <circle cx="360" cy="149" r="34" fill="#16a5ff"/>
+  <circle cx="256" cy="384" r="34" fill="#31d66f"/>
+</svg>

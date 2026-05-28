@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f3f8f6"/>
+  <rect x="74" y="74" width="1052" height="482" rx="32" fill="#ffffff" stroke="#d9e5df"/>
+  <g transform="translate(122 122)">
+    <rect width="128" height="128" rx="30" fill="#101412"/>
+    <rect x="14" y="18" width="100" height="18" rx="9" fill="#f7faf8"/>
+    <circle cx="30" cy="27" r="5" fill="#31d66f"/>
+    <circle cx="46" cy="27" r="5" fill="#ffd43b"/>
+    <circle cx="62" cy="27" r="5" fill="#ff6b5f"/>
+    <path d="M64 100V66M64 66C45 66 34 54 34 35M64 66c19 0 30-12 30-31" fill="none" stroke="#f7faf8" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="34" cy="35" r="11" fill="#16a5ff"/>
+    <circle cx="94" cy="35" r="11" fill="#16a5ff"/>
+    <circle cx="64" cy="100" r="11" fill="#31d66f"/>
+  </g>
+  <text x="122" y="316" fill="#101412" font-family="Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="76" font-weight="800">GitStatusBar</text>
+  <text x="124" y="374" fill="#58645f" font-family="Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="28">macOS menu bar git status for local repositories.</text>
+  <g transform="translate(720 150)" font-family="SFMono-Regular, Consolas, Liberation Mono, monospace">
+    <rect width="340" height="28" rx="8" fill="#171917"/>
+    <text x="18" y="19" fill="#fff4c7" font-size="14">▲ 3</text>
+    <text x="70" y="19" fill="#16a5ff" font-size="14">⎇</text>
+    <text x="236" y="19" fill="#edf2ef" font-size="14">Thu 9:41</text>
+    <rect x="0" y="28" width="340" height="330" rx="0" fill="#121413"/>
+    <text x="18" y="62" fill="#aeb6b1" font-size="17">~/Projects</text>
+    <text x="18" y="92" fill="#f3f7f4" font-size="19" font-weight="700">18</text>
+    <text x="54" y="92" fill="#35dd73" font-size="19">✓14</text>
+    <text x="104" y="92" fill="#ffd83d" font-size="19">✗3</text>
+    <text x="148" y="92" fill="#19c7f7" font-size="19">↑1</text>
+    <text x="184" y="92" fill="#8b9590" font-size="19">↓0</text>
+    <line x1="18" y1="114" x2="322" y2="114" stroke="#ffffff" stroke-opacity=".16"/>
+    <text x="18" y="150" fill="#35dd73" font-size="20">●</text>
+    <text x="44" y="150" fill="#f3f7f4" font-size="20" font-weight="700">api-service</text>
+    <text x="220" y="150" fill="#16a5ff" font-size="20">⎇ main</text>
+    <text x="304" y="150" fill="#35dd73" font-size="20">✓</text>
+    <rect x="12" y="166" width="316" height="28" rx="5" fill="#ffffff" fill-opacity=".16"/>
+    <text x="18" y="187" fill="#ffd83d" font-size="20">●</text>
+    <text x="44" y="187" fill="#f3f7f4" font-size="20" font-weight="700">mobile-app</text>
+    <text x="220" y="187" fill="#16a5ff" font-size="20">⎇ main</text>
+    <text x="296" y="187" fill="#ff5f57" font-size="20">3</text>
+    <text x="18" y="224" fill="#19c7f7" font-size="20">▲</text>
+    <text x="44" y="224" fill="#f3f7f4" font-size="20" font-weight="700">automation</text>
+    <text x="220" y="224" fill="#16a5ff" font-size="20">⎇ main</text>
+    <text x="304" y="224" fill="#19c7f7" font-size="20">1</text>
+  </g>
+</svg>

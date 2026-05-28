@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GitStatusBar - macOS menu bar app for git repository status</title>
+    <meta
+      name="description"
+      content="GitStatusBar is a native macOS menu bar app that scans local git repositories and shows branch, clean, dirty, ahead, and behind status at a glance."
+    >
+    <meta name="theme-color" content="#f3f8f6">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://gitstatus.tech/">
+    <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="assets/logo.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gitstatus.tech/">
+    <meta property="og:title" content="GitStatusBar - macOS menu bar app for git repository status">
+    <meta
+      property="og:description"
+      content="Check many local git repositories from the macOS menu bar. See clean, dirty, ahead, behind, branches, and quick actions without opening a terminal."
+    >
+    <meta property="og:image" content="https://gitstatus.tech/assets/social-card.png">
+    <meta property="og:image:alt" content="GitStatusBar logo and macOS menu bar git status preview.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="GitStatusBar - macOS menu bar app for git repository status">
+    <meta
+      name="twitter:description"
+      content="A native macOS menu bar app for checking local git repository status at a glance."
+    >
+    <meta name="twitter:image" content="https://gitstatus.tech/assets/social-card.png">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "GitStatusBar",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "macOS 13 or later",
+        "description": "A native macOS menu bar app that scans local git repositories and shows branch, clean, dirty, ahead, and behind status at a glance.",
+        "url": "https://gitstatus.tech/",
+        "downloadUrl": "https://github.com/rogue-socket/gitstatus/releases/latest",
+        "softwareVersion": "0.1.1",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "codeRepository": "https://github.com/rogue-socket/gitstatus"
+      }
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/">
+        <img src="assets/logo.svg" alt="" width="32" height="32">
+        <span>GitStatusBar</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#features">Features</a>
+        <a href="#install">Install</a>
+        <a href="#faq">FAQ</a>
+        <a href="https://github.com/rogue-socket/gitstatus">GitHub</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <img class="app-icon" src="assets/logo.svg" alt="" width="96" height="96">
+          <p class="eyebrow">Native macOS menu bar app</p>
+          <h1>GitStatusBar</h1>
+          <p class="lede">
+            Scan your local git repositories and see branch, clean, dirty,
+            ahead, and behind status from the menu bar.
+          </p>
+          <div class="actions">
+            <a
+              id="downloadLink"
+              class="button primary"
+              href="https://github.com/rogue-socket/gitstatus/releases/latest"
+            >
+              Download for macOS
+            </a>
+            <a class="button secondary" href="#install">Install with Homebrew</a>
+          </div>
+          <p id="releaseMeta" class="release-meta">macOS 13+ · latest release on GitHub</p>
+        </div>
+
+        <figure class="menu-preview" aria-label="Sanitized mock GitStatusBar menu and repository submenu.">
+          <div class="mock-menubar" aria-hidden="true">
+            <div class="mac-menu-left">
+              <span class="apple-mark"></span>
+              <span>Finder</span>
+              <span>File</span>
+              <span>Edit</span>
+              <span>View</span>
+              <span>Window</span>
+              <span>Help</span>
+            </div>
+            <div class="mac-status-right">
+              <span class="menubar-badge">▲ 3</span>
+              <span class="branch-status"><span class="branch-mark" aria-hidden="true"></span></span>
+              <span class="wifi-icon" aria-hidden="true"></span>
+              <span class="battery-icon" aria-hidden="true"><span></span></span>
+              <span class="clock">Thu 9:41</span>
+              <span class="control-center-icon" aria-hidden="true"><span></span><span></span></span>
+            </div>
+          </div>
+
+          <div class="mock-stage">
+            <div class="repo-submenu">
+              <div class="submenu-title">
+                <span class="status-glyph dirty">●</span>
+                <strong>mobile-app</strong>
+                <span>~/Projects/mobile-app</span>
+              </div>
+              <div class="divider"></div>
+              <div class="section-label">STATUS</div>
+              <p class="submenu-status">
+                <span class="modified">3 modified</span>
+                <span class="dim">no remote</span>
+              </p>
+              <p class="submenu-last">last: 3 weeks ago · “Update project notes”</p>
+              <div class="divider"></div>
+              <p class="submenu-actions">
+                <span>Open:</span> Finder · Terminal · Zed
+                <span>Copy:</span> path · branch
+              </p>
+              <div class="divider"></div>
+              <div class="section-label">BRANCHES</div>
+              <div class="branch-row">
+                <span class="branch-current">●</span>
+                <strong>main</strong>
+                <span class="dim">⊘ no remote</span>
+                <span class="dim">⏱ 3 weeks ago · “Update project notes”</span>
+              </div>
+            </div>
+
+            <div class="menu-panel">
+              <div class="scan-root">~/Projects</div>
+              <div class="summary">
+                <strong>18</strong>
+                <span class="clean">✓14</span>
+                <span class="dirty">✗3</span>
+                <span class="ahead">↑1</span>
+                <span class="behind">↓0</span>
+              </div>
+              <div class="divider"></div>
+              <div class="repo-row clean-state">
+                <span class="row-glyph">●</span>
+                <span class="repo-name">api-service</span>
+                <span class="branch-cell"><span class="branch-mark" aria-hidden="true"></span>main</span>
+                <strong>✓</strong>
+              </div>
+              <div class="repo-row clean-state">
+                <span class="row-glyph">●</span>
+                <span class="repo-name">desktop-app</span>
+                <span class="branch-cell"><span class="branch-mark" aria-hidden="true"></span>main</span>
+                <strong>✓</strong>
+              </div>
+              <div class="repo-row active-row dirty-state">
+                <span class="row-glyph">●</span>
+                <span class="repo-name">mobile-app</span>
+                <span class="branch-cell"><span class="branch-mark" aria-hidden="true"></span>main</span>
+                <strong><span class="modified">3</span> <span class="dim">⊘</span></strong>
+              </div>
+              <div class="repo-row clean-state">
+                <span class="row-glyph">●</span>
+                <span class="repo-name">docs-site</span>
+                <span class="branch-cell"><span class="branch-mark" aria-hidden="true"></span>main</span>
+                <strong>✓</strong>
+              </div>
+              <div class="repo-row dirty-state">
+                <span class="row-glyph">●</span>
+                <span class="repo-name">design-system</span>
+                <span class="branch-cell"><span class="branch-mark" aria-hidden="true"></span>main</span>
+                <strong>1</strong>
+              </div>
+              <div class="repo-row clean-state">
+                <span class="row-glyph">●</span>
+                <span class="repo-name">cli-tool</span>
+                <span class="branch-cell"><span class="branch-mark" aria-hidden="true"></span>release</span>
+                <strong>✓</strong>
+              </div>
+              <div class="repo-row dirty-state">
+                <span class="row-glyph">●</span>
+                <span class="repo-name">web-client</span>
+                <span class="branch-cell"><span class="branch-mark" aria-hidden="true"></span>feature/ui</span>
+                <strong><span class="modified">2</span></strong>
+              </div>
+              <div class="repo-row clean-state">
+                <span class="row-glyph">●</span>
+                <span class="repo-name">infra-config</span>
+                <span class="branch-cell"><span class="branch-mark" aria-hidden="true"></span>main</span>
+                <strong>✓</strong>
+              </div>
+              <div class="repo-row ahead-state">
+                <span class="row-glyph">▲</span>
+                <span class="repo-name">automation</span>
+                <span class="branch-cell"><span class="branch-mark" aria-hidden="true"></span>main</span>
+                <strong>1</strong>
+              </div>
+              <div class="repo-row behind-state">
+                <span class="row-glyph">▼</span>
+                <span class="repo-name">sandbox-app</span>
+                <span class="branch-cell"><span class="branch-mark" aria-hidden="true"></span>main</span>
+                <strong>1</strong>
+              </div>
+              <div class="divider"></div>
+              <div class="menu-actions">
+                <span>⚙︎ Settings</span>
+                <span>↻ Refresh <kbd>⌘R</kbd></span>
+                <span>⇣ Refresh + fetch <kbd>⇧⌘R</kbd></span>
+              </div>
+            </div>
+          </div>
+        </figure>
+      </section>
+
+      <section id="features" class="feature-band" aria-label="Highlights">
+        <div>
+          <h2>Fast checks, no background polling</h2>
+          <p>Refresh when you ask. Idle CPU stays at zero.</p>
+        </div>
+        <div>
+          <h2>Built for many repos</h2>
+          <p>Scan one or more folders and compare clean, dirty, ahead, and behind counts.</p>
+        </div>
+        <div>
+          <h2>Native Mac controls</h2>
+          <p>Open repos in Finder, Terminal, editors, or their hosted remote pages.</p>
+        </div>
+      </section>
+
+      <section class="details">
+        <div>
+          <p class="eyebrow">Why it exists</p>
+          <h2>One place for the git repos you keep forgetting to check.</h2>
+        </div>
+        <div class="detail-grid">
+          <article>
+            <h3>Scan folders, not tabs</h3>
+            <p>
+              Point GitStatusBar at folders such as <code>~/Documents</code> or <code>~/Projects</code>.
+              It finds local repositories and keeps the menu grouped around the
+              places you actually work.
+            </p>
+          </article>
+          <article>
+            <h3>Readable repository state</h3>
+            <p>
+              See clean, modified, untracked, ahead, behind, stash, and no-remote
+              signals without reading raw <code>git status</code> output for every project.
+            </p>
+          </article>
+          <article>
+            <h3>Manual refresh by design</h3>
+            <p>
+              The app does not poll in the background. Refresh local status with
+              <code>⌘R</code>, or fetch remotes only when you choose <code>⇧⌘R</code>.
+            </p>
+          </article>
+          <article>
+            <h3>Native macOS utility</h3>
+            <p>
+              GitStatusBar is a small AppKit menu bar app with no Dock icon, no
+              browser runtime, and no account sign-in.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="install" class="install">
+        <div class="install-copy">
+          <p class="eyebrow">Install</p>
+          <h2>Download the app, or use Homebrew.</h2>
+          <p>
+            The release build is ad-hoc signed. On first launch, right-click the
+            app in Finder and choose Open.
+          </p>
+        </div>
+        <div class="commands">
+          <div class="command-row">
+            <span>Homebrew cask</span>
+            <code>brew install --cask rogue-socket/tap/gitstatusbar</code>
+          </div>
+          <div class="command-row">
+            <span>Latest release</span>
+            <a href="https://github.com/rogue-socket/gitstatus/releases/latest">
+              github.com/rogue-socket/gitstatus/releases/latest
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="faq">
+        <div>
+          <p class="eyebrow">FAQ</p>
+          <h2>Before you install</h2>
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>Does GitStatusBar run git fetch automatically?</summary>
+            <p>No. Local refresh is manual, and network fetches only happen when you choose Refresh + fetch.</p>
+          </details>
+          <details>
+            <summary>Why does macOS warn on first launch?</summary>
+            <p>The release is ad-hoc signed. Right-click the app in Finder and choose Open once to allow it.</p>
+          </details>
+          <details>
+            <summary>Does it send repository data anywhere?</summary>
+            <p>No. GitStatusBar scans local repositories on your Mac and has no account, sync service, or telemetry.</p>
+          </details>
+          <details>
+            <summary>Can I build it from source?</summary>
+            <p>Yes. The source is available on GitHub, and the app can be built with Swift Package Manager.</p>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>GitStatusBar is open source.</span>
+      <a href="https://github.com/rogue-socket/gitstatus">View source</a>
+    </footer>
+  </body>
+</html>
