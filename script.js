@@ -1,6 +1,8 @@
 const releaseMeta = document.querySelector("#releaseMeta");
 const downloadLink = document.querySelector("#downloadLink");
-const directDownloadLinks = document.querySelectorAll(".directDownload");
+const directDownloadLinks = document.querySelectorAll(
+  ".directDownload, .latestDownload"
+);
 const directDownloadFallbackUrl =
   "https://github.com/rogue-socket/gitstatus/releases/latest/download/GitStatusBar-v0.1.1.zip";
 
