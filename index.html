@@ -50,6 +50,46 @@
         "codeRepository": "https://github.com/rogue-socket/gitstatus"
       }
     </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Does GitStatusBar run git fetch automatically?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Local refresh is manual, and network fetches only happen when you choose Refresh + fetch."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does GitStatusBar run in the background?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It lives in the macOS menu bar, but it does not continuously poll repositories in the background."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does GitStatusBar send repository data anywhere?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. GitStatusBar scans local repositories on your Mac and has no account, sync service, or app telemetry."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I build GitStatusBar from source?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. The source is available on GitHub, and the app can be built with Swift Package Manager."
+            }
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <header class="site-header">
@@ -59,7 +99,9 @@
       </a>
       <nav aria-label="Primary navigation">
         <a href="#features">Features</a>
+        <a href="#screenshots">Screenshots</a>
         <a href="#install">Install</a>
+        <a href="#privacy">Privacy</a>
         <a href="#faq">FAQ</a>
         <a href="https://github.com/rogue-socket/gitstatus">GitHub</a>
       </nav>
@@ -234,6 +276,21 @@
         </div>
       </section>
 
+      <section class="polling-note">
+        <div>
+          <p class="eyebrow">Manual by design</p>
+          <h2>No background polling, no surprise network work.</h2>
+        </div>
+        <div>
+          <p>
+            GitStatusBar checks your repositories when you ask it to. Local refresh
+            updates working-tree status, and remote fetch only happens from the
+            explicit Refresh + fetch action. That keeps idle CPU at zero and avoids
+            hidden git traffic while you are working.
+          </p>
+        </div>
+      </section>
+
       <section class="details">
         <div>
           <p class="eyebrow">Why it exists</p>
@@ -272,6 +329,50 @@
         </div>
       </section>
 
+      <section id="screenshots" class="screenshots">
+        <div>
+          <p class="eyebrow">Screenshots</p>
+          <h2>Sanitized previews of the real menu flow.</h2>
+          <p>
+            The examples use fake repository names, but mirror the app's menu,
+            status symbols, branch display, and repository submenu.
+          </p>
+        </div>
+        <div class="screenshot-grid">
+          <figure>
+            <div class="mini-window">
+              <div class="mini-title">~/Projects</div>
+              <div class="mini-summary">
+                <strong>18</strong><span class="clean">✓14</span><span class="dirty">✗3</span><span class="ahead">↑1</span><span class="behind">↓0</span>
+              </div>
+              <div class="mini-list">
+                <span><b class="dot clean"></b> api-service <em>main</em> ✓</span>
+                <span><b class="dot clean"></b> desktop-app <em>main</em> ✓</span>
+                <span class="selected"><b class="dot dirty"></b> mobile-app <em>main</em> 3 ⊘</span>
+                <span><b class="dot clean"></b> docs-site <em>main</em> ✓</span>
+                <span><b class="dot ahead"></b> automation <em>main</em> 1</span>
+              </div>
+            </div>
+            <figcaption>Repository overview with clean, dirty, ahead, and behind counts.</figcaption>
+          </figure>
+          <figure>
+            <div class="mini-window wide">
+              <div class="mini-title"><b class="dot dirty"></b> mobile-app <span>~/Projects/mobile-app</span></div>
+              <div class="mini-divider"></div>
+              <p class="mini-label">STATUS</p>
+              <p><strong class="modified">3 modified</strong> <span class="dim">no remote</span></p>
+              <p class="dim">last: 3 weeks ago · “Update project notes”</p>
+              <div class="mini-divider"></div>
+              <p>Open: Finder · Terminal · Zed &nbsp; Copy: path · branch</p>
+              <div class="mini-divider"></div>
+              <p class="mini-label">BRANCHES</p>
+              <p><span class="ahead">●</span> <strong>main</strong> <span class="dim">⊘ no remote</span></p>
+            </div>
+            <figcaption>Repository submenu with status, actions, and branches.</figcaption>
+          </figure>
+        </div>
+      </section>
+
       <section id="install" class="install">
         <div class="install-copy">
           <p class="eyebrow">Install</p>
@@ -280,8 +381,22 @@
             The release build is ad-hoc signed. On first launch, right-click the
             app in Finder and choose Open.
           </p>
+          <div class="download-options">
+            <a class="button primary latestDownload" href="https://github.com/rogue-socket/gitstatus/releases/latest">
+              Download latest release
+            </a>
+            <a class="button secondary" href="https://github.com/rogue-socket/gitstatus">
+              View source on GitHub
+            </a>
+          </div>
         </div>
         <div class="commands">
+          <div class="command-row">
+            <span>Direct download</span>
+            <a class="latestDownload" href="https://github.com/rogue-socket/gitstatus/releases/latest">
+              github.com/rogue-socket/gitstatus/releases/latest
+            </a>
+          </div>
           <div class="command-row">
             <span>Homebrew cask</span>
             <code>brew install --cask rogue-socket/tap/gitstatusbar</code>
@@ -292,6 +407,27 @@
               github.com/rogue-socket/gitstatus/releases/latest
             </a>
           </div>
+        </div>
+      </section>
+
+      <section id="privacy" class="privacy">
+        <div>
+          <p class="eyebrow">Privacy</p>
+          <h2>Local repo status stays on your Mac.</h2>
+        </div>
+        <div class="privacy-list">
+          <article>
+            <h3>No account</h3>
+            <p>GitStatusBar does not require login, sync, or a hosted service.</p>
+          </article>
+          <article>
+            <h3>No app telemetry</h3>
+            <p>The app does not send repository names, branches, paths, or status data anywhere.</p>
+          </article>
+          <article>
+            <h3>No automatic fetch</h3>
+            <p>Network git operations only happen when you explicitly choose Refresh + fetch.</p>
+          </article>
         </div>
       </section>
 
@@ -306,12 +442,24 @@
             <p>No. Local refresh is manual, and network fetches only happen when you choose Refresh + fetch.</p>
           </details>
           <details>
+            <summary>Does GitStatusBar run in the background?</summary>
+            <p>It lives in the macOS menu bar, but it does not continuously poll repositories in the background.</p>
+          </details>
+          <details>
+            <summary>Does it support multiple folders?</summary>
+            <p>Yes. Add folders such as <code>~/Documents</code> or <code>~/Projects</code>, and GitStatusBar scans the repositories inside them.</p>
+          </details>
+          <details>
             <summary>Why does macOS warn on first launch?</summary>
             <p>The release is ad-hoc signed. Right-click the app in Finder and choose Open once to allow it.</p>
           </details>
           <details>
             <summary>Does it send repository data anywhere?</summary>
             <p>No. GitStatusBar scans local repositories on your Mac and has no account, sync service, or telemetry.</p>
+          </details>
+          <details>
+            <summary>How is this different from a full git client?</summary>
+            <p>GitStatusBar is not a replacement for your editor, terminal, or GitHub Desktop. It is a lightweight overview for many local repositories.</p>
           </details>
           <details>
             <summary>Can I build it from source?</summary>

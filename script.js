@@ -1,5 +1,6 @@
 const releaseMeta = document.querySelector("#releaseMeta");
 const downloadLink = document.querySelector("#downloadLink");
+const latestDownloadLinks = document.querySelectorAll(".latestDownload");
 
 async function setLatestReleaseDownload() {
   try {
@@ -23,6 +24,9 @@ async function setLatestReleaseDownload() {
     }
 
     downloadLink.href = zipAsset.browser_download_url;
+    latestDownloadLinks.forEach((link) => {
+      link.href = zipAsset.browser_download_url;
+    });
     releaseMeta.textContent = `${release.tag_name} · ${zipAsset.name}`;
   } catch {
     releaseMeta.textContent = "macOS 13+ · latest release on GitHub";

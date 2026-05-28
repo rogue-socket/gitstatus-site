@@ -612,12 +612,18 @@ kbd {
 .feature-band p,
 .install p,
 .details p,
+.polling-note p,
+.screenshots p,
+.privacy p,
 .faq p {
   color: var(--muted);
   line-height: 1.55;
 }
 
+.polling-note,
+.screenshots,
 .details,
+.privacy,
 .faq {
   display: grid;
   grid-template-columns: minmax(280px, 0.42fr) minmax(0, 1fr);
@@ -626,9 +632,22 @@ kbd {
   padding: 64px 0;
 }
 
+.polling-note .eyebrow,
+.screenshots .eyebrow,
 .details .eyebrow,
+.privacy .eyebrow,
 .faq .eyebrow {
   margin-top: 0;
+}
+
+.polling-note {
+  align-items: start;
+}
+
+.polling-note p:last-child {
+  max-width: 780px;
+  margin-bottom: 0;
+  font-size: 1.08rem;
 }
 
 .detail-grid {
@@ -647,7 +666,132 @@ kbd {
   background: var(--surface);
 }
 
+.screenshot-grid,
+.privacy-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.screenshot-grid figure {
+  margin: 0;
+}
+
+.mini-window {
+  min-height: 305px;
+  border: 1px solid rgb(255 255 255 / 15%);
+  border-radius: 8px;
+  padding: 18px;
+  color: #f3f7f4;
+  background: #141716;
+  box-shadow: 0 24px 70px rgb(16 20 18 / 14%);
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
+
+.mini-window.wide {
+  padding: 18px 20px;
+}
+
+.mini-title {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  color: #aeb6b1;
+  font-size: 0.82rem;
+}
+
+.mini-title span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mini-summary {
+  display: flex;
+  gap: 7px;
+  margin: 12px 0;
+  font-size: 1rem;
+}
+
+.mini-list {
+  display: grid;
+  gap: 7px;
+  border-top: 1px solid rgb(255 255 255 / 15%);
+  padding-top: 12px;
+}
+
+.mini-list span {
+  display: grid;
+  grid-template-columns: 13px minmax(0, 1fr) 68px 24px;
+  gap: 8px;
+  align-items: center;
+  min-height: 28px;
+  border-radius: 5px;
+  padding: 0 7px;
+  font-weight: 800;
+}
+
+.mini-list .selected {
+  background: rgb(255 255 255 / 16%);
+}
+
+.mini-list em {
+  color: #16a5ff;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: currentColor;
+}
+
+.dot.clean {
+  color: #35dd73;
+}
+
+.dot.dirty {
+  color: #ffd83d;
+}
+
+.dot.ahead {
+  color: #18c8f7;
+}
+
+.mini-divider {
+  height: 1px;
+  margin: 14px 0;
+  background: rgb(255 255 255 / 15%);
+}
+
+.mini-label {
+  margin-bottom: 8px;
+  color: #aeb6b1;
+  font-size: 0.74rem;
+}
+
+.mini-window p {
+  margin-bottom: 8px;
+  color: #e5eae7;
+  font-size: 0.82rem;
+}
+
+.mini-window .dim {
+  margin-left: 18px;
+}
+
+.screenshot-grid figcaption {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
 .detail-grid h3,
+.privacy-list h3,
 .faq summary {
   margin: 0 0 10px;
   font-size: 1.05rem;
@@ -655,6 +799,21 @@ kbd {
 }
 
 .detail-grid p {
+  margin-bottom: 0;
+}
+
+.privacy-list {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.privacy-list article {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 22px;
+  background: var(--surface);
+}
+
+.privacy-list p {
   margin-bottom: 0;
 }
 
@@ -668,6 +827,13 @@ kbd {
 
 .install-copy .eyebrow {
   margin-top: 0;
+}
+
+.download-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
 }
 
 .commands {
@@ -751,7 +917,10 @@ kbd {
 @media (max-width: 880px) {
   .hero,
   .install,
+  .polling-note,
+  .screenshots,
   .details,
+  .privacy,
   .faq {
     grid-template-columns: 1fr;
   }
@@ -771,6 +940,11 @@ kbd {
   }
 
   .detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .screenshot-grid,
+  .privacy-list {
     grid-template-columns: 1fr;
   }
 }
@@ -909,6 +1083,9 @@ kbd {
 
   .details,
   .install,
+  .polling-note,
+  .screenshots,
+  .privacy,
   .faq {
     padding: 42px 0;
   }
